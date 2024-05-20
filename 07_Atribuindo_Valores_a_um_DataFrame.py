@@ -57,3 +57,35 @@ data = pd.read_csv('/Users/matheus/Downloads/GasPricesinBrazil_2004-2019.csv', s
 #print(data)
 
 print(data['PRODUTO'])
+
+#produto_view = data['PRODUTO']
+# print(produto_view)
+
+#produto_copy_bkp = data['PRODUTO'].copy()#retorna uma copia da coluna 'PRODUTO'
+# print(produto_copy_bkp)
+
+# data['PRODUTO'] = 'Combustível' #atribuindo o valor constante 'Combustível'para linha do dataframe na coluna 'PRODUTO'
+# #print(data.head())
+# print(data['PRODUTO'])
+# print(produto_copy_bkp)
+
+#nrows, ncols = data.shape
+
+#print(nrows, ncols)
+
+#novos_produtos = [f'Produto {i}' for i in range(nrows)]
+#print(novos_produtos)
+
+#print(len(novos_produtos))
+# a quantidade de elementos da lista 'novos_produtos' é igual ao número de linhas do dataframe
+#data['PRODUTO'] = novos_produtos
+#print(data)
+
+# print(produto_view)
+# print('\n')
+# print(produto_copy_bkp)
+
+# voltando para os produtos originais
+#data['PRODUTO'] = produto_copy_bkp
+
+#print(data)
