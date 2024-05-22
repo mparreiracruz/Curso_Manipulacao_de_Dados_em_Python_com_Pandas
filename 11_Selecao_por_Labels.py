@@ -143,8 +143,13 @@ pesquisa_de_satisfacao = pd.DataFrame({
 
 #-----------------------------------11_Selecao_por_Labels-----------------------------------
 
+#iloc: passa índices numéricos
+#loc: passa labels das colunas e linhas
+
 #print(pesquisa_de_satisfacao.iloc[0])# retorna a linha de índice 0 (implicito) ===> usando o iloc
+
 #print(pesquisa_de_satisfacao.iloc[0, 1])
+
 #print(pesquisa_de_satisfacao.loc['XboxOne'])# retorna a linha cujo rótulo do índice é 'XboxOne'
 
 # print(pesquisa_de_satisfacao)
@@ -153,5 +158,11 @@ pesquisa_de_satisfacao = pd.DataFrame({
 #
 # print(pesquisa_de_satisfacao.loc[['XboxOne', 'Switch']])
 
-print(pesquisa_de_satisfacao.loc[:, ['bom', 'pessimo']])
-# parei em 10:25
+#print(pesquisa_de_satisfacao.loc[:, ['bom', 'pessimo']])
+
+print(pesquisa_de_satisfacao)
+
+print(pesquisa_de_satisfacao.iloc[0, 2])
+
+print(pesquisa_de_satisfacao.loc['XboxOne', 'pessimo'])
+
