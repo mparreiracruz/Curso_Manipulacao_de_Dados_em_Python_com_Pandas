@@ -838,8 +838,23 @@ For-each DataFrame.iterrows() (LENTO ==> apenas indicado para iterar pequenos co
 '''
 2. Preparação dos dados, Tratando observações com valores vazios (null / nan) no dataset
 '''
+def print_full(df):
+    # Salvando as configurações atuais
+    pd.set_option('display.max_rows', None)  # Exibir todas as linhas
+    pd.set_option('display.max_columns', None)  # Exibir todas as colunas
+    pd.set_option('display.max_colwidth', None)  # Exibir conteúdo completo das colunas
+    pd.set_option('display.width', None)  # Ajustar largura de exibição
 
-print(data.info())
+    # Imprimindo o DataFrame
+    print(df)
+
+    # Restaurando as configurações padrão após a exibição
+    pd.reset_option('display.max_rows')
+    pd.reset_option('display.max_columns')
+    pd.reset_option('display.max_colwidth')
+    pd.reset_option('display.width')
+
+#print_full(data.info())
 '''
 De um total de 106823 observações, não há valores null / nan para nenhum atributo.
 Mas, veremos que não é bem assim neste caso específico.
@@ -864,18 +879,18 @@ data_pre = data.copy()
 
 '''
 Datas
-Como os atributos de data do dataset já estão 
-em um formato de data aceitável (YYYY-MM-DD), não precisamos forçar nenhuma conversão nesse sentido.
+Como os atributos de data do dataset já estão em um formato de data aceitável (YYYY-MM-DD),
+não precisamos forçar nenhuma conversão nesse sentido.
 '''
 
 data_pre['DATA INICIAL'] = pd.to_datetime(data_pre['DATA INICIAL'])
 
 data_pre['DATA FINAL'] = pd.to_datetime(data_pre['DATA FINAL'])
 
-print(data_pre.info())
+#print_full(data_pre.info())
 
 '''
-# convertendo atributos/colunas para 'numeric'
+Dados Numéricos
 '''
 
 # convertendo atributos/colunas para 'numeric'
@@ -885,7 +900,7 @@ for atributo in ['MARGEM MÉDIA REVENDA', 'PREÇO MÉDIO DISTRIBUIÇÃO', 'DESVI
     # atribuído no lugar
     data_pre[atributo] = pd.to_numeric(data_pre[atributo], errors='coerce')
 
-print(data_pre.info())
+print_full(data_pre.info())
 
 #Note que temos vários valores null agora **após a *conversão de tipos***.
 # Vamos checá-los com mais cuidado nos dados originais e preprocessados
